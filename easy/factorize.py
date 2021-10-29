@@ -5,7 +5,7 @@ from pytest import mark
 
 def factorize(n):
     """
-    Дано целое натуральное число n
+    Дано натуральное число n
     Разложить его на простые делители и вернуть их в порядке возрастания
 
     factorize(84) :returns [2, 2, 3, 7]
@@ -26,7 +26,7 @@ def test_factorize(data):
     assert factorize(data[0]) == data[1]
 
 
-@mark.parametrize('seed', range(20))
+@mark.parametrize('seed', list(range(20)))
 def test_randomized(seed):
     random.seed(seed)
     primes = [2, 3, 13, 17, 37, 173, 977]
