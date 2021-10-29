@@ -4,11 +4,16 @@ for file in os.listdir('.github/workflows'):
     os.remove(f'.github/workflows/{file}')
 
 template = ''.join(open('.github/.yaml.tmp').readlines())
+root_blacklist = ['.py', '.md', '.gitignore']
 
 for root in os.listdir('.'):
-    if root.endswith('.py') or root.startswith('.'):
+    if root.startswith('.'):
+        continue
+    if any([root.endswith(ext) for ext in root_blacklist]):
         continue
     for task in os.listdir(root):
+        if not task.endswith('.py'):
+            continue
         _path = f'{root}/{task}'
         _name = task[:-3]
 
