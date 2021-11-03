@@ -4,6 +4,8 @@ import random
 import sys
 import traceback
 
+import deprecated
+
 from prepare import list_tasks
 
 '''
@@ -30,6 +32,9 @@ def pick(root, tasks, cnt, out=sys.stdout):
 
 
 def _precalc(limit):
+    """
+    Unused as of this moment
+    """
     limit += 1
     c = [[0 for _1 in range(limit)] for _2 in range(limit)]
     c[0][0] = 1
@@ -55,9 +60,10 @@ if __name__ == '__main__':
         try:
             for root in ['easy', 'hard']:
                 n = len(tasks[root])
-                sel = n // 2
-                while c(n, sel - 1) > 100 and _points[root] * (sel - 1) >= 6:
-                    sel -= 1
+                # sel = n // 2
+                # while c(n, sel - 1) > 100 and _points[root] * (sel - 1) >= 6:
+                #     sel -= 1
+                sel = (6 + _points[root] - 1) // _points[root]
                 pick(root, tasks[root], sel, out=var)
 
             with open('.github/.secret', 'r') as gl:
