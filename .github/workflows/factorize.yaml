@@ -1,0 +1,25 @@
+name: 'Task factorize [hard]'
+
+on:
+  push:
+    paths:
+      - 'hard/factorize.py'
+  workflow_dispatch:
+
+jobs:
+  test-factorize:
+    name: 'test-factorize'
+    runs-on: [ self-hosted ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install pytest
+      - run: |
+          pytest hard/factorize.py

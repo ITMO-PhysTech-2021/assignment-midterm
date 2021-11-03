@@ -13,7 +13,7 @@ from prepare import list_tasks
 Запустите его ОДИН раз в самом начале, чтобы сгенерировать свой вариант.
 '''
 
-name = os.path.dirname(os.getcwd())
+name = os.path.split(os.getcwd())[-1]
 random.seed(name)
 _points = {
     'easy': 2,

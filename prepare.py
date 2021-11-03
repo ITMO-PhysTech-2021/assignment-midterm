@@ -36,7 +36,7 @@ if __name__ == '__main__':
     for root, block in tasks.items():
         for name in block:
             config = template.format(
-                _full_name=f'Task \'{name}\' [{root}]',
+                _full_name=f'Task {name} [{root}]',
                 _name=name,
                 _path=f'{root}/{name}.py',
             )
