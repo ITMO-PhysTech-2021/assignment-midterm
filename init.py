@@ -25,8 +25,8 @@ def pick(root, tasks, cnt, out=sys.stdout):
     variant = tasks[:cnt]
     print(f'Вариант [{root}]:', file=out)
     for task in variant:
-        print(f' - {task} - {pts} баллов', file=out)
-    print(f'Все остальные задачи из \'{root}\' стоят {pts / 2} баллов\n', file=out)
+        print(f' - {task} - {pts} pts', file=out)
+    print(f'Все остальные задачи из \'{root}\' стоят {pts / 2} pts\n', file=out)
 
 
 def _precalc(limit):
